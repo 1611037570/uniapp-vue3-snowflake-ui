@@ -1,0 +1,33 @@
+.snowflake-image-container {
+    box-sizing: border-box;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+.snowflake-image-loading {
+    background: linear-gradient(90deg, #f0f2f5 25%, #e6e8eb 37%, #f0f2f5 63%);
+    background-size: 400% 100%;
+    animation: loading 1.4s ease infinite;
+}
+.snowflake-image-error {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.snowflake-image {
+    display: block;
+    will-change: transform;
+    transform: transition3d(0, 0, 0);
+    opacity: 0.3;
+    box-sizing: border-box;
+}
+.snowflake-image-transition {
+    opacity: 1 !important;
+    transition: opacity 0.5s;
+}
