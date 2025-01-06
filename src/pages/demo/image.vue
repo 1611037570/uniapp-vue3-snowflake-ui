@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import sfImg from "@/components/snowflake-image/snowflake-image.vue";
 import { ref } from "vue";
-import { useImgReloadV3 } from "@/components/snowflake-image/hooks/useImgReload";
 import { useSystemStore } from "@/stores";
+import { useImageReload } from "@/hooks/useImageReload";
 const systemStore = useSystemStore();
 const cb = () => {
     console.log("点击了");
@@ -11,7 +10,7 @@ const cb = () => {
 const src = ref(
     "https://jxxt-1257689580.cos.ap-chengdu.myqcloud.com/20241227/b14c8c6400facebc53b0befb046b7d58.webp"
 );
-useImgReloadV3();
+useImageReload();
 const width = ref(200);
 const height = ref(200);
 const radius = ref(12);
@@ -53,12 +52,12 @@ const updateStatus = () => {
         <swiper style="width: 100%; height: 100%" :current="1">
             <swiper-item>
                 <view class="swiper-item uni-bg-green">
-                    <sf-img @click="cb" border="3px solid red" :src="src" />
+                    <sf-image @click="cb" border="3px solid red" :src="src" />
                 </view>
             </swiper-item>
 
             <swiper-item>
-                <sf-img
+                <sf-image
                     @click="cb"
                     :width="width"
                     :height="height"
@@ -95,14 +94,14 @@ const updateStatus = () => {
                     </view>
                 </view>
                 <view>{{ status }}的图片</view>
-                <sf-img
+                <sf-image
                     src="https://www.baiud.com/error-img.png"
                     @error="updateStatus"
                 />
             </swiper-item>
             <swiper-item>
                 <view class="swiper-item uni-bg-blue">
-                    <sf-img :src="src" radius="50%" border="3px solid red" />
+                    <sf-image :src="src" radius="50%" border="3px solid red" />
                 </view>
             </swiper-item>
         </swiper>

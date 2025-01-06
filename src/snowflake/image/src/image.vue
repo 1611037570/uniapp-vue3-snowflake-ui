@@ -1,13 +1,4 @@
 <script setup lang="ts">
-import {
-    getCurrentInstance,
-    inject,
-    ref,
-    watch,
-    computed,
-    onMounted,
-    onBeforeUnmount,
-} from "vue";
 import type { SnowflakeImage } from "./types";
 import { DEFAULT_CONFIG, DEFAULT_MODEL, DEFAULT_PROPS } from "./config/default";
 import { getID, convertSize } from "./utils/index";

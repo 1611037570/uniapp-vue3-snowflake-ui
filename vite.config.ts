@@ -9,12 +9,16 @@ import AutoImport from "unplugin-auto-import/vite";
 // 自动导入组件
 import Components from "@uni-helper/vite-plugin-uni-components";
 
+import { snowflakeResolver } from "./src/snowflake";
+
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
         // 使用自动导入组件 必须放在uni之前
         Components({
             dts: "src/types/components.d.ts",
+            resolvers: [snowflakeResolver()],
+            dirs: ["src/components"],
         }),
         // 使用UniApp 插件
         uni(),
@@ -23,7 +27,7 @@ export default defineConfig({
         AutoImport({
             imports: ["vue", "uni-app"],
             dts: "src/types/auto-imports.d.ts",
-            // dirs: ["src/hooks"], // 自动导入 hooks
+            dirs: ["src/hooks"], // 自动导入 hooks
         }),
     ],
 });

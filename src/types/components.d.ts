@@ -7,6 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    SnowflakeImage: typeof import('./../components/snowflake-image/snowflake-image.vue')['default']
+    SfImage: typeof import('@/snowflake/image')['default']
   }
 }
