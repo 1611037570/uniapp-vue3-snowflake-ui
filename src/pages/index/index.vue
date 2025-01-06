@@ -2,7 +2,6 @@
     <view class="content">
         <image class="logo" src="/static/logo.png" />
         <sf-image />
-        <obj />
         <view class="title">{{ $t("name") }}</view>
         <view class="title" @tap="goDemo">{{ $t("goDemo") }}</view>
     </view>
