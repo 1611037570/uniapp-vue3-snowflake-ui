@@ -10,7 +10,7 @@
 <script setup lang="ts">
 const goDemo = () => {
     uni.navigateTo({
-        url: "/pages/demo/index",
+        url: "/demo/index",
     });
 };
 </script>

@@ -8,6 +8,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Obj: typeof import('./../components/obj.vue')['default']
-    SfImage: typeof import('@/snowflake/image/image.vue')['default']
+    SfImage: typeof import('@/snowflake-ui/image/image.vue')['default']
   }
 }

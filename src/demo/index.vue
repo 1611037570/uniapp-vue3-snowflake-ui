@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const goImageLazy = () => {
     uni.navigateTo({
-        url: "/pages/demo/image",
+        url: "/demo/image",
     });
 };
 </script>

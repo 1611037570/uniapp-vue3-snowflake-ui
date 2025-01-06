@@ -6,18 +6,25 @@
             "style": {
                 "navigationBarTitleText": "uni-app"
             }
-        },
+        }
+    ],
+    "subPackages": [
         {
-            "path": "pages/demo/index",
-            "style": {
-                "navigationBarTitleText": "demo"
-            }
-        },
-        {
-            "path": "pages/demo/image",
-            "style": {
-                "navigationBarTitleText": "demo"
-            }
+            "root": "demo",
+            "pages": [
+                {
+                    "path": "index",
+                    "style": {
+                        "navigationBarTitleText": "详情"
+                    }
+                },
+                {
+                    "path": "image",
+                    "style": {
+                        "navigationBarTitleText": "image"
+                    }
+                }
+            ]
         }
     ],
     "globalStyle": {
