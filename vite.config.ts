@@ -9,7 +9,7 @@ import AutoImport from "unplugin-auto-import/vite";
 // 自动导入组件
 import Components from "@uni-helper/vite-plugin-uni-components";
 
-import { snowflakeResolver } from "./src/snowflake";
+import { snowflakeResolver } from "./src/snowflake-ui";
 
 // https://vitejs.dev/config/
 export default defineConfig({

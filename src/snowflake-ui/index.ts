@@ -7,7 +7,7 @@ export const snowflakeResolver = (): any => {
                 return {
                     name: currentName,
                     from:
-                        "@/snowflake/" +
+                        "@/snowflake-ui/" +
                         currentName +
                         "/" +
                         currentName +
