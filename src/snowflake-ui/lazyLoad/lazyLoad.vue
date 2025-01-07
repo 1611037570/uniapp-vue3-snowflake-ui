@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import { DEFAULT_MODEL, DEFAULT_CONFIG } from "./default";
-import { getID } from "../image/utils";
-const { proxy }: any = getCurrentInstance();
-const snowflakeID: string = getID();
-const imgFromPage: boolean | null = inject("imgFromPage", null);
+import { useCreateId } from "@/hooks";
+import type { SnowflakeLazyLoad } from "./types";
 defineOptions({
     name: "snowflake-lazy-load",
 });
+
+const {} = withDefaults(defineProps<SnowflakeLazyLoad>(), {});
 const emit = defineEmits(["show"]);
+const { proxy }: any = getCurrentInstance();
+
+const snowflakeID: string = useCreateId();
+// 来自页面
+const fromPage: boolean | null = inject("fromPage", null);
+
 // 正方形大小
 const size = defineModel<number | string>("size", {
     default: DEFAULT_MODEL.SIZE,
@@ -33,14 +39,13 @@ const observer = ref<any>();
 // 开启
 const open = () => {
     show.value = true;
-    console.log("show");
     emit("show");
 };
 
 // 开启监听器事件
 const openEmit = () => {
-    if (!imgFromPage) return;
-    uni.$on("image_observer_status", (type) => {
+    if (!fromPage) return;
+    uni.$on("observer_status", (type) => {
         if (show.value) return;
         // #ifndef APP-NVUE
         if (type === "open") {
@@ -57,8 +62,8 @@ const closeObserver = () => {
 };
 // 卸载监听器事件
 const closeEmit = () => {
-    if (!imgFromPage) return;
-    uni.$off("image_observer_status");
+    if (!fromPage) return;
+    uni.$off("observer_status");
 };
 // 懒加载
 const lazyLoad = () => {
@@ -79,8 +84,6 @@ const lazyLoad = () => {
             .relativeToViewport(DEFAULT_CONFIG.MARGINS)
             .observe("#" + snowflakeID, (res: any) => {
                 if (res.intersectionRatio > 0) {
-                    console.log('res',res);
-                    
                     open();
                     closeEmit();
                     closeObserver();

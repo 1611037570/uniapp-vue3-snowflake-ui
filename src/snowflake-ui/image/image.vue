@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { SnowflakeImage } from "./types";
 import { DEFAULT_CONFIG, DEFAULT_MODEL, DEFAULT_PROPS } from "./config/default";
-import { getID, convertSize } from "./utils/index";
+import { convertSize } from "./utils/index";
+import { useCreateId } from "@/hooks";
 
 import { useSystemStore } from "@/stores";
 const systemStore = useSystemStore();
@@ -48,9 +49,9 @@ const height = defineModel<number | string>("height", {
 });
 /** 内部数据 */
 // 图片是否来自页面
-const imgFromPage: boolean | null = inject("imgFromPage", null);
+const fromPage: boolean | null = inject("fromPage", null);
 // 图片id
-const snowflakeID: string = getID();
+const snowflakeID: string = useCreateId();
 // 图片是否显示
 const show = ref<boolean>(!props.lazy);
 // 过渡状态
@@ -213,8 +214,8 @@ const closeObserver = () => {
 };
 // 开启监听器事件
 const openEmit = () => {
-    if (!imgFromPage) return;
-    uni.$on("image_observer_status", (type) => {
+    if (!fromPage) return;
+    uni.$on("observer_status", (type) => {
         if (show.value) return;
         // #ifndef APP-NVUE
         if (type === "open") {
@@ -227,8 +228,8 @@ const openEmit = () => {
 };
 // 卸载监听器事件
 const closeEmit = () => {
-    if (!imgFromPage) return;
-    uni.$off("image_observer_status");
+    if (!fromPage) return;
+    uni.$off("observer_status");
 };
 // 开启图片
 const openImage = () => {

@@ -3,9 +3,9 @@ export const DEFAULT_MODEL = {
     // 正方形宽高 开启后图片为正方形 WIDTH HEIGHT 失效
     SIZE: 0,
     // 自定义宽度
-    WIDTH: 100,
+    WIDTH: "100px",
     // 自定义高度
-    HEIGHT: 100,
+    HEIGHT: "100px",
 };
 
 // 默认配置数据

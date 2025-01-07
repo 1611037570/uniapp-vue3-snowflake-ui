@@ -1,5 +1,5 @@
-export const useImageReload = () => {
-    provide("imgFromPage", true);
+export const useReloadObserver = () => {
+    provide("fromPage", true);
     const lastLoad = ref(true);
     onShow(() => {
         if (lastLoad.value) {
@@ -7,10 +7,10 @@ export const useImageReload = () => {
             return;
         }
 
-        uni.$emit("image_observer_status", "open");
+        uni.$emit("observer_status", "open");
     });
 
     onHide(() => {
-        uni.$emit("image_observer_status", "close");
+        uni.$emit("observer_status", "close");
     });
 };

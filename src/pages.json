@@ -29,6 +29,12 @@
                     "style": {
                         "navigationBarTitleText": "元素懒加载"
                     }
+                },
+                {
+                    "path": "system-font-size",
+                    "style": {
+                        "navigationBarTitleText": "跟随系统字体大小"
+                    }
                 }
             ]
         }
