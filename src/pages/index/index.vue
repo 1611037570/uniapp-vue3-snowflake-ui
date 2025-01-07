@@ -1,9 +1,6 @@
 <template>
     <view class="content">
         <image class="logo" src="/static/logo.png" />
-        <sf-image />
-        {{ $f(12) }}
-
         <view class="title">{{ $t("name") }}</view>
         <view class="title" @tap="goDemo">{{ $t("goDemo") }}</view>
     </view>

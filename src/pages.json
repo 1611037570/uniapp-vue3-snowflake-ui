@@ -21,7 +21,13 @@
                 {
                     "path": "image",
                     "style": {
-                        "navigationBarTitleText": "image"
+                        "navigationBarTitleText": "图片懒加载"
+                    }
+                },
+                {
+                    "path": "lazy-load",
+                    "style": {
+                        "navigationBarTitleText": "元素懒加载"
                     }
                 }
             ]

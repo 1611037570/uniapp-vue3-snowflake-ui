@@ -1,12 +1,15 @@
 <script setup lang="ts">
-const goImageLazy = () => {
+const go = (path: string) => {
     uni.navigateTo({
-        url: "/demo/image",
+        url: "/demo/" + path,
     });
 };
 </script>
 
-<template><view> 
-    <view @tap="goImageLazy">图片懒加载</view>
-</view></template>
+<template>
+    <view>
+        <view @tap="go('lazy-load')">元素懒加载</view>
+        <view @tap="go('image')">图片懒加载</view>
+    </view>
+</template>
 <style lang="scss" scoped></style>

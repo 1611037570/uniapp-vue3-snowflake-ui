@@ -173,14 +173,17 @@ const handleLoad = () => {
 // 懒加载
 const lazyLoad = () => {
     setTimeout(() => {
+        let that;
         // #ifdef MP-WEIXIN
-        observer.value = proxy.createIntersectionObserver();
+        that = proxy;
         // #endif
         // #ifndef MP-WEIXIN
-        observer.value = uni.createIntersectionObserver(this, {
+        that = uni;
+        // #endif
+
+        observer.value = that.createIntersectionObserver({
             thresholds: DEFAULT_CONFIG.THRESHOLDS,
         });
-        // #endif
 
         observer.value
             .relativeToViewport(DEFAULT_CONFIG.MARGINS)
