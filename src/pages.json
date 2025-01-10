@@ -35,6 +35,12 @@
                     "style": {
                         "navigationBarTitleText": "跟随系统字体大小"
                     }
+                },
+                {
+                    "path": "i18n",
+                    "style": {
+                        "navigationBarTitleText": "国际化"
+                    }
                 }
             ]
         }

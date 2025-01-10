@@ -5,7 +5,7 @@ import en from "./en.json";
 
 const messages = {
     "zh-Hans": zhHans,
-    en,
+    en: en,
 };
 
 const i18n = createI18n({

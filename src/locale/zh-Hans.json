@@ -1,4 +1,5 @@
 {
     "name": "雪花UI",
+    "info":"一个基于 UniApp + Vue3 setup语法 + TypeScript 开发的组件库",
     "goDemo": "体验demo"
 }

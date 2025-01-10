@@ -1,4 +1,5 @@
 {
     "name": "snowflake-ui",
-    "goDemo": "go demo page"
+    "info":"is come from UniApp + Vue3 setup + TypeScript developed component library",
+    "goDemo": "look demo page"
 }
