@@ -2,11 +2,10 @@
 import type { SnowflakeImage } from "./types";
 import { DEFAULT_CONFIG, DEFAULT_MODEL, DEFAULT_PROPS } from "./config/default";
 import { convertSize } from "./utils/index";
-import { useCreateId } from "@/hooks";
+import { useId } from "@/hooks";
 
 import { useSystemStore } from "@/stores";
 const systemStore = useSystemStore();
-
 const { proxy }: any = getCurrentInstance();
 defineOptions({
     name: "snowflake-image",
@@ -51,7 +50,7 @@ const height = defineModel<number | string>("height", {
 // 图片是否来自页面
 const fromPage: boolean | null = inject("fromPage", null);
 // 图片id
-const snowflakeID: string = useCreateId();
+const snowflakeID: string = useId();
 // 图片是否显示
 const show = ref<boolean>(!props.lazy);
 // 过渡状态
@@ -174,17 +173,16 @@ const handleLoad = () => {
 // 懒加载
 const lazyLoad = () => {
     setTimeout(() => {
-        let that;
         // #ifdef MP-WEIXIN
-        that = proxy;
-        // #endif
-        // #ifndef MP-WEIXIN
-        that = uni;
-        // #endif
-
-        observer.value = that.createIntersectionObserver({
+        observer.value = proxy.createIntersectionObserver({
             thresholds: DEFAULT_CONFIG.THRESHOLDS,
         });
+        // #endif
+        // #ifndef MP-WEIXIN
+        observer.value = uni.createIntersectionObserver(this, {
+            thresholds: DEFAULT_CONFIG.THRESHOLDS,
+        });
+        // #endif
 
         observer.value
             .relativeToViewport(DEFAULT_CONFIG.MARGINS)

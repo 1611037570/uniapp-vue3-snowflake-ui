@@ -1,2 +1,2 @@
-export * from './useCreateId'
+export * from './useId'
 export * from './useReloadObserver'

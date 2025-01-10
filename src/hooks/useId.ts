@@ -1,5 +1,5 @@
 // 创建id
-export const useCreateId = () => {
+export const useId = () => {
     return (
         "snowflake-id" +
         "xxxx-xxxx-xxxx-xxxx".replace(/[x]/g, function (c) {

@@ -5,7 +5,7 @@ const go = (path: string) => {
     });
 };
 
-const res = ref([
+const components = ref([
     {
         name: "元素懒加载",
         url: "lazy-load",
@@ -15,20 +15,35 @@ const res = ref([
         url: "image",
     },
 ]);
+
+const functions = ref([
+    {
+        name: "跟随系统字体大小",
+        url: "system-font-size",
+    },
+    {
+        name: "国际化",
+        url: "i18n",
+    },
+]);
 </script>
 
 <template>
     <view>
         <view
-            v-for="(item, index) in res"
+            v-for="(item, index) in components"
+            :key="index"
             style="width: 100%; padding: 12px; font-size: 20px"
             @tap="go(item.url)"
             >{{ item.name }}</view
         >
         <view
+            v-for="(item, index) in functions"
+            :key="index"
+
             style="width: 100%; padding: 12px; font-size: 20px"
-            @tap="go('system-font-size')"
-            >跟随系统字体大小</view
+            @tap="go(item.url)"
+            >{{ item.name }}</view
         >
     </view>
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DEFAULT_MODEL, DEFAULT_CONFIG } from "./default";
-import { useCreateId } from "@/hooks";
+import { useId } from "@/hooks";
 import type { SnowflakeLazyLoad } from "./types";
 defineOptions({
     name: "snowflake-lazy-load",
@@ -10,7 +10,7 @@ const {} = withDefaults(defineProps<SnowflakeLazyLoad>(), {});
 const emit = defineEmits(["show"]);
 const { proxy }: any = getCurrentInstance();
 
-const snowflakeID: string = useCreateId();
+const snowflakeID: string = useId();
 // 来自页面
 const fromPage: boolean | null = inject("fromPage", null);
 
@@ -68,18 +68,16 @@ const closeEmit = () => {
 // 懒加载
 const lazyLoad = () => {
     setTimeout(() => {
-        let that;
         // #ifdef MP-WEIXIN
-        that = proxy;
-        // #endif
-        // #ifndef MP-WEIXIN
-        that = uni;
-        // #endif
-
-        observer.value = that.createIntersectionObserver({
+        observer.value = proxy.createIntersectionObserver({
             thresholds: DEFAULT_CONFIG.THRESHOLDS,
         });
-
+        // #endif
+        // #ifndef MP-WEIXIN
+        observer.value = uni.createIntersectionObserver(this, {
+            thresholds: DEFAULT_CONFIG.THRESHOLDS,
+        });
+        // #endif
         observer.value
             .relativeToViewport(DEFAULT_CONFIG.MARGINS)
             .observe("#" + snowflakeID, (res: any) => {
