@@ -18,10 +18,12 @@ const props = withDefaults(defineProps<SafeArea>(), {
         style="width: 100%; height: 100%; display: flex; flex-direction: column"
     >
         <sf-safe-area :fixed="false" v-if="customHeader">
-            <slot name="header">header </slot>
+            <slot name="header"> </slot>
         </sf-safe-area>
-        <slot v-else name="header">header</slot>
-        <view style="flex: 1; display: flex; border: 2px solid red;overflow: hidden;">
+        <slot v-else name="header"></slot>
+        <view
+            style="flex: 1; display: flex; width: 100%; flex-direction: column"
+        >
             <slot></slot>
         </view>
         <sf-safe-area :fixed="false" mode="bottom">
@@ -33,7 +35,7 @@ const props = withDefaults(defineProps<SafeArea>(), {
 <style>
 page,
 page-body {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
 }
 </style>

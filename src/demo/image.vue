@@ -28,14 +28,7 @@ const updateStatus = () => {
 </script>
 
 <template>
-    <view
-        style="
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        "
-    >
+    <sf-page>
         <swiper style="width: 100%; height: 100%" :current="1">
             <swiper-item>
                 <view class="swiper-item">
@@ -76,17 +69,10 @@ const updateStatus = () => {
                 <view class="swiper-item uni-bg-blue">
                     <sf-image :src="src" radius="50%" border="3px solid red" />
                 </view>
-            </swiper-item>
-        </swiper>
-    </view>
+            </swiper-item> </swiper
+    ></sf-page>
 </template>
 <style scoped>
-page {
-    width: 100%;
-    height: 100%;
-}
-.swiper {
-}
 .swiper-item {
     display: block;
     height: 100%;

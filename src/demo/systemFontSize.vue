@@ -26,18 +26,10 @@ const lvName: any = ref({
     3: "超大",
 });
 const status = ref("加载中");
-
 </script>
 
 <template>
-    <view
-        style="
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        "
-    >
+    <sf-page>
         <sf-image
             @click="cb"
             :width="width"
@@ -51,15 +43,9 @@ const status = ref("加载中");
             <view class="btn" @tap="updateLv(1)">字体等级增加</view>
             <view class="btn" @tap="updateLv(-1)">字体等级减少</view>
         </view>
-    </view>
+    </sf-page>
 </template>
 <style scoped>
-page {
-    width: 100%;
-    height: 100%;
-}
-.swiper {
-}
 .swiper-item {
     display: block;
     height: 100%;

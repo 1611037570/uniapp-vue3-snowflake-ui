@@ -21,7 +21,8 @@ const components = ref([
     {
         name: "安全区域",
         url: "safeArea",
-    },   {
+    },
+    {
         name: "page容器",
         url: "page",
     },
@@ -40,7 +41,7 @@ const functions = ref([
 </script>
 
 <template>
-    <view>
+    <sf-page>
         <view
             v-for="(item, index) in components"
             :key="index"
@@ -55,6 +56,6 @@ const functions = ref([
             @tap="go(item.url)"
             >{{ item.name }}</view
         >
-    </view>
+    </sf-page>
 </template>
 <style lang="scss" scoped></style>

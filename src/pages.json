@@ -26,7 +26,7 @@
                     }
                 },
                 {
-                    "path": "lazy-load",
+                    "path": "lazyLoad",
                     "style": {
                         "navigationBarTitleText": "元素懒加载"
                         // ,"disableScroll": true
@@ -46,7 +46,7 @@
                     }
                 },
                 {
-                    "path": "system-font-size",
+                    "path": "systemFontSize",
                     "style": {
                         "navigationBarTitleText": "跟随系统字体大小" // ,"disableScroll": true
                     }
