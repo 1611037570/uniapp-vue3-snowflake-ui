@@ -1,5 +1,12 @@
 {
     "name": "雪花UI",
-    "info":"一个基于 UniApp + Vue3 setup语法 + TypeScript 开发的组件库",
-    "goDemo": "体验demo"
+    "info": "一个基于 UniApp + Vue3 setup语法 + TypeScript 开发的组件库",
+    "goDemo": "体验demo",
+    "demo.image": "图片懒加载",
+    "demo.i18n": "国际化",
+    "demo.lazyLoad": "元素懒加载",
+    "demo.page": "page容器",
+    "demo.safeArea": "安全区域",
+    "demo.virtualList": "虚拟列表开发中"
+    // "demo.image": "",
 }

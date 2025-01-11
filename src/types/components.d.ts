@@ -8,7 +8,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Observer: typeof import('./../components/observer/observer.vue')['default']
-    Sf: typeof import('@/snowflake-ui//.vue')['default']
     SfImage: typeof import('@/snowflake-ui/image/image.vue')['default']
     SfLazyLoad: typeof import('@/snowflake-ui/lazyLoad/lazyLoad.vue')['default']
     SfPage: typeof import('@/snowflake-ui/page/page.vue')['default']

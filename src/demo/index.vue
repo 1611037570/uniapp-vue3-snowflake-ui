@@ -4,40 +4,7 @@ const go = (path: string) => {
         url: "/demo/" + path,
     });
 };
-
-const components = ref([
-    {
-        name: "元素懒加载",
-        url: "lazyLoad",
-    },
-    {
-        name: "图片懒加载",
-        url: "image",
-    },
-    {
-        name: "虚拟列表开发中",
-        url: "virtualList",
-    },
-    {
-        name: "安全区域",
-        url: "safeArea",
-    },
-    {
-        name: "page容器",
-        url: "page",
-    },
-]);
-
-const functions = ref([
-    {
-        name: "跟随系统字体大小",
-        url: "systemFontSize",
-    },
-    {
-        name: "国际化",
-        url: "i18n",
-    },
-]);
+import { components, functions } from "./config";
 </script>
 
 <template>
@@ -45,17 +12,33 @@ const functions = ref([
         <view
             v-for="(item, index) in components"
             :key="index"
-            style="width: 100%; padding: 12px; font-size: 20px"
+            class="item"
             @tap="go(item.url)"
-            >{{ item.name }}</view
         >
+            <view> {{ $t(`demo.${item.url}`) }} </view>
+            <view>></view>
+        </view>
         <view
             v-for="(item, index) in functions"
             :key="index"
-            style="width: 100%; padding: 12px; font-size: 20px"
+            class="item"
             @tap="go(item.url)"
-            >{{ item.name }}</view
+        >
+            <view>
+                {{ item.name }}
+            </view>
+            <view>></view></view
         >
     </sf-page>
 </template>
-<style lang="scss" scoped></style>
+<style scoped>
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 100%; */
+
+    padding: 12px;
+    font-size: 20px;
+}
+</style>

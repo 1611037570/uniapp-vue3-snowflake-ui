@@ -1,5 +1,11 @@
 {
     "name": "snowflake-ui",
-    "info":"is come from UniApp + Vue3 setup + TypeScript developed component library",
-    "goDemo": "look demo page"
+    "info": "is come from UniApp + Vue3 setup + TypeScript developed component library",
+    "goDemo": "look demo page",
+    "demo.image": "image lazy load",
+    "demo.i18n": "i18n",
+    "demo.lazyLoad": "element lazy load",
+    "demo.page": "page container",
+    "demo.safeArea": "safe area",
+    "demo.virtualList": "virtual list"
 }
