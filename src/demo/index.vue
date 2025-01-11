@@ -8,7 +8,7 @@ const go = (path: string) => {
 const components = ref([
     {
         name: "元素懒加载",
-        url: "lazy-load",
+        url: "lazyLoad",
     },
     {
         name: "图片懒加载",
@@ -31,7 +31,7 @@ const components = ref([
 const functions = ref([
     {
         name: "跟随系统字体大小",
-        url: "system-font-size",
+        url: "systemFontSize",
     },
     {
         name: "国际化",

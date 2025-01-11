@@ -27,14 +27,15 @@ const props = withDefaults(defineProps<SafeArea>(), {
             <slot></slot>
         </view>
         <sf-safe-area :fixed="false" mode="bottom">
-            <slot name="footer">2 </slot>
+            <slot name="footer"> </slot>
         </sf-safe-area>
     </view>
 </template>
 <style lang="scss" scoped></style>
 <style>
 page,
-page-body {
+page-body,
+uni-page-body {
     width: 100% !important;
     height: 100% !important;
 }
