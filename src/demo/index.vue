@@ -21,6 +21,9 @@ const components = ref([
     {
         name: "安全区域",
         url: "safeArea",
+    },   {
+        name: "page容器",
+        url: "page",
     },
 ]);
 

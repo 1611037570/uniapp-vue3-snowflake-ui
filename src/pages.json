@@ -3,7 +3,8 @@
         {
             "path": "pages/index/index",
             "style": {
-                "navigationBarTitleText": "uni-app"
+                "navigationBarTitleText": "uni-app",
+                "disableScroll": true
             }
         }
     ],
@@ -14,43 +15,52 @@
                 {
                     "path": "index",
                     "style": {
-                        "navigationBarTitleText": "详情"
+                        "navigationBarTitleText": "详情",
+                        "disableScroll": true
                     }
                 },
                 {
                     "path": "image",
                     "style": {
-                        "navigationBarTitleText": "图片懒加载"
+                        "navigationBarTitleText": "图片懒加载" // ,"disableScroll": true
                     }
                 },
                 {
                     "path": "lazy-load",
                     "style": {
                         "navigationBarTitleText": "元素懒加载"
+                        // ,"disableScroll": true
                     }
                 },
                 {
                     "path": "safeArea",
                     "style": {
                         "navigationBarTitleText": "安全区域"
+                        // ,"disableScroll": true
+                    }
+                },
+                {
+                    "path": "page",
+                    "style": {
+                        "navigationBarTitleText": "page" // ,"disableScroll": true
                     }
                 },
                 {
                     "path": "system-font-size",
                     "style": {
-                        "navigationBarTitleText": "跟随系统字体大小"
+                        "navigationBarTitleText": "跟随系统字体大小" // ,"disableScroll": true
                     }
                 },
                 {
                     "path": "i18n",
                     "style": {
-                        "navigationBarTitleText": "国际化"
+                        "navigationBarTitleText": "国际化" // ,"disableScroll": true
                     }
                 },
                 {
                     "path": "virtualList",
                     "style": {
-                        "navigationBarTitleText": "虚拟列表"
+                        "navigationBarTitleText": "虚拟列表" // ,"disableScroll": true
                     }
                 }
             ]
@@ -60,6 +70,7 @@
         "navigationBarTextStyle": "black",
         "navigationBarTitleText": "uni-app",
         "navigationBarBackgroundColor": "#F8F8F8",
-        "backgroundColor": "#F8F8F8"
+        "backgroundColor": "#F8F8F8",
+        "disableScroll": true
     }
 }

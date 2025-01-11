@@ -8,11 +8,5 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Observer: typeof import('./../components/observer/observer.vue')['default']
-    SfImage: typeof import('@/snowflake-ui/image/image.vue')['default']
-    SfLazyLoad: typeof import('@/snowflake-ui/lazyLoad/lazyLoad.vue')['default']
-    SfSafeArea: typeof import('@/snowflake-ui/safeArea/safeArea.vue')['default']
-    SfVirtuaiList: typeof import('@/snowflake-ui/virtuaiList/virtuaiList.vue')['default']
-    SfVirtuaList: typeof import('@/snowflake-ui/virtuaList/virtuaList.vue')['default']
-    SfVirtualList: typeof import('@/snowflake-ui/virtualList/virtualList.vue')['default']
   }
 }
