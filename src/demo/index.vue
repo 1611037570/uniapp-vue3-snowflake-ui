@@ -14,6 +14,14 @@ const components = ref([
         name: "图片懒加载",
         url: "image",
     },
+    {
+        name: "虚拟列表开发中",
+        url: "virtualList",
+    },
+    {
+        name: "安全区域",
+        url: "safeArea",
+    },
 ]);
 
 const functions = ref([
@@ -40,7 +48,6 @@ const functions = ref([
         <view
             v-for="(item, index) in functions"
             :key="index"
-
             style="width: 100%; padding: 12px; font-size: 20px"
             @tap="go(item.url)"
             >{{ item.name }}</view

@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { DEFAULT_MODEL, DEFAULT_CONFIG } from "./default";
 import { useId } from "@/hooks";
-import type { SnowflakeLazyLoad } from "./types";
 defineOptions({
     name: "snowflake-lazy-load",
 });
-
-const {} = withDefaults(defineProps<SnowflakeLazyLoad>(), {});
+type LazyLoad = {};
+const {} = withDefaults(defineProps<LazyLoad>(), {});
 const emit = defineEmits(["show"]);
 const { proxy }: any = getCurrentInstance();
 
