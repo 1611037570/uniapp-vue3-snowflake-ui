@@ -5,6 +5,10 @@ const props = defineProps({
         type: String,
         default: "small",
     },
+    lazy: {
+        type: Boolean,
+        default: false,
+    },
 });
 provide("globalSize", {
     size: props.size,

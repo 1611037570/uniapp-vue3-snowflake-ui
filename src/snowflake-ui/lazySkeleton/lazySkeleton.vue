@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps({
-    lazyLoad: {
+    lazy: {
         type: Boolean,
         default: false,
     },
@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
     <sf-skeleton>
-        <sf-lazy-load v-if="lazyLoad">
+        <sf-lazy-load v-if="lazy">
             <slot></slot>
         </sf-lazy-load>
         <slot v-else></slot>

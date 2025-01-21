@@ -23,6 +23,10 @@ export const components = ref([
         name: "骨架图",
         url: "skeleton",
     },
+    {
+        name: "设置元素",
+        url: "setItem",
+    },
 ]);
 
 export const functions = ref([

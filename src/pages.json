@@ -69,6 +69,12 @@
                         "navigationBarTitleText": "骨架图"
                         // ,"disableScroll": true
                     }
+                },   {
+                    "path": "setItem",
+                    "style": {
+                        "navigationBarTitleText": "设置item"
+                        // ,"disableScroll": true
+                    }
                 }
             ]
         }
