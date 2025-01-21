@@ -27,6 +27,10 @@ export const components = ref([
         name: "设置元素",
         url: "setItem",
     },
+    {
+        name: "quotation",
+        url: "quotation",
+    },
 ]);
 
 export const functions = ref([
