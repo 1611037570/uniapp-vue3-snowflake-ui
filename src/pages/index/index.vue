@@ -12,7 +12,10 @@ const goDemo = () => {
         <view class="content">
             <image class="logo" src="/static/snow.svg" />
             <view class="title">{{ $t("name") }}</view>
-            <view class="title text-area">{{ $t("info") }}</view>
+
+            <view style="width: 100%; display: flex;">
+                {{ $t("info") }}
+            </view>
             <view>目前已有 {{ getComponentNum() }} 个组件</view>
             <view class="title" @tap="goDemo">{{ $t("goDemo") }}</view>
         </view>
@@ -32,7 +35,7 @@ const goDemo = () => {
 .logo {
     height: 200rpx;
     width: 200rpx;
-    margin-top: 200rpx;
+    margin-top: 100rpx;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50rpx;

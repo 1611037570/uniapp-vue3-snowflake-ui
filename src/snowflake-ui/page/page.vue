@@ -33,10 +33,7 @@ const props = withDefaults(defineProps<SafeArea>(), {
 </template>
 <style lang="scss" scoped></style>
 <style>
-page,
-page-body,
-uni-page-body,
-.uni-page-body {
+uni-page-body {
     width: 100% !important;
     height: 100% !important;
 }

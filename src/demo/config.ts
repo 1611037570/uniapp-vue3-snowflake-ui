@@ -1,4 +1,3 @@
-
 export const components = ref([
     {
         name: "元素懒加载",
@@ -19,6 +18,10 @@ export const components = ref([
     {
         name: "page容器",
         url: "page",
+    },
+    {
+        name: "骨架图",
+        url: "skeleton",
     },
 ]);
 

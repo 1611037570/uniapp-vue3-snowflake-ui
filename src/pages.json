@@ -62,6 +62,13 @@
                     "style": {
                         "navigationBarTitleText": "虚拟列表" // ,"disableScroll": true
                     }
+                },
+                {
+                    "path": "skeleton",
+                    "style": {
+                        "navigationBarTitleText": "骨架图"
+                        // ,"disableScroll": true
+                    }
                 }
             ]
         }
