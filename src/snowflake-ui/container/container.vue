@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { provide } from "vue";
+import { provide } from 'vue'
 const props = defineProps({
-    size: {
-        type: String,
-        default: "small",
-    },
-    lazy: {
-        type: Boolean,
-        default: false,
-    },
-});
-provide("globalSize", {
-    size: props.size,
-});
+  size: {
+    type: String,
+    default: 'small'
+  },
+  lazy: {
+    type: Boolean,
+    default: false
+  }
+})
+provide('globalSize', {
+  size: props.size
+})
 </script>
 
 <template>
-    <view style="width: 100%; height: 100%"><slot></slot> </view>
+  <view style="width: 100%; height: 100%"><slot></slot> </view>
 </template>
 <style lang="scss" scoped></style>

@@ -1,15 +1,15 @@
 {
-    "name": "snowflake-ui",
-    "info": "is come from UniApp + Vue3 setup + TypeScript developed component library",
-    "goDemo": "look demo page",
-    "copyright": "Copyright © 2024 YYQX",
-    "demo.image": "image lazy load",
-    "demo.i18n": "i18n",
-    "demo.lazyLoad": "element lazy load",
-    "demo.page": "page container",
-    "demo.safeArea": "safe area",
-    "demo.virtualList": "virtual list",
-    "demo.skeleton": "skeleton",
-    "demo.quotation": "animation",
-    "demo.setItem": "set item"
+  "name": "snowflake-ui",
+  "info": "is come from UniApp + Vue3 setup + TypeScript developed component library",
+  "goDemo": "look demo page",
+  "copyright": "Copyright © 2024 YYQX",
+  "demo.image": "image lazy load",
+  "demo.i18n": "i18n",
+  "demo.lazyLoad": "element lazy load",
+  "demo.page": "page container",
+  "demo.safeArea": "safe area",
+  "demo.virtualList": "virtual list",
+  "demo.skeleton": "skeleton",
+  "demo.quotation": "animation",
+  "demo.setItem": "set item"
 }

@@ -33,7 +33,7 @@ export const isBoolean = (value: any) => {
 /**
  * 判断是否为对象
  */
-export const isObject = (value: any)=> {
+export const isObject = (value: any) => {
   return isTypeOf(value, 'Object')
 }
 

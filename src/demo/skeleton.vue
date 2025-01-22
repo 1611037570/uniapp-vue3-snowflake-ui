@@ -1,9 +1,9 @@
-<script setup>
-</script>
+<script setup></script>
 
-<template><view>
+<template>
+  <view>
     <sf-skeleton>>vie</sf-skeleton>
-</view></template>
+  </view>
+</template>
 
-<style  scoped>
-</style>
+<style scoped></style>
