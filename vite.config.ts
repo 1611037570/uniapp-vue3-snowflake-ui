@@ -22,7 +22,6 @@ export default defineConfig({
         }),
         // 使用UniApp 插件
         uni(),
-
         // 使用自动导入
         AutoImport({
             imports: ["vue", "uni-app"],
