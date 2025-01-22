@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { getComponentNum } from "./getModule";
+import { components } from "@/demo/config";
 const goDemo = () => {
     uni.navigateTo({
         url: "/demo/index",
@@ -12,13 +13,18 @@ const goDemo = () => {
         <view class="content">
             <image class="logo" src="/static/snow.svg" />
             <view class="title">{{ $t("name") }}</view>
-
-            <view style="width: 100%; display: flex;">
+            <text>
                 {{ $t("info") }}
-            </view>
-            <view>目前已有 {{ getComponentNum() }} 个组件</view>
+            </text>
+            <view>目前已有 {{ components.length }} 个组件</view>
             <view class="title" @tap="goDemo">{{ $t("goDemo") }}</view>
         </view>
+        <template #footer>
+            <!-- 版权所有 -->
+            <view style="display: flex;align-items: center;justify-content: center;">
+                {{ $t("copyright") }}
+            </view>
+        </template>
     </sf-page>
 </template>
 
@@ -35,7 +41,6 @@ const goDemo = () => {
 .logo {
     height: 200rpx;
     width: 200rpx;
-    margin-top: 100rpx;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50rpx;

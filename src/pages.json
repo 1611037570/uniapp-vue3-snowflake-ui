@@ -4,7 +4,8 @@
             "path": "pages/index/index",
             "style": {
                 "navigationBarTitleText": "uni-app",
-                "disableScroll": true
+                "disableScroll": true,
+                "navigationStyle": "custom"
             }
         }
     ],
