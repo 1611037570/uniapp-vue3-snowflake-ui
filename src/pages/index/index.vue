@@ -6,6 +6,11 @@ const goDemo = () => {
         url: "/demo/index",
     });
 };
+const go = () => {
+    const url = "https://juejin.cn/user/2342386827791687/posts?sort=popular";
+
+    window.open(url);
+};
 </script>
 
 <template>
@@ -21,8 +26,18 @@ const goDemo = () => {
         </view>
         <template #footer>
             <!-- 版权所有 -->
-            <view style="display: flex;align-items: center;justify-content: center;">
-                {{ $t("copyright") }}
+            <view
+                style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                "
+            >
+                <view> 友情链接： <text @tap="go">稀土掘金</text> </view>
+                <view>
+                    {{ $t("copyright") }}
+                </view>
             </view>
         </template>
     </sf-page>
@@ -46,13 +61,8 @@ const goDemo = () => {
     margin-bottom: 50rpx;
 }
 
-.text-area {
-    display: flex;
-    justify-content: center;
-}
-
 .title {
-    font-size: 36rpx;
-    color: #8f8f94;
+    font-size: 1.125rem;
+    color: #51a0e5;
 }
 </style>

@@ -32,9 +32,5 @@ const props = withDefaults(defineProps<SafeArea>(), {
     </view>
 </template>
 <style>
-uni-page,
-uni-page-body {
-    width: 100% !important;
-    height: 100vh !important;
-}
+
 </style>
