@@ -11,10 +11,6 @@ declare module 'vue' {
     SfImage: typeof import('@/snowflake-ui/image/image.vue')['default']
     SfLazyLoad: typeof import('@/snowflake-ui/lazyLoad/lazyLoad.vue')['default']
     SfPage: typeof import('@/snowflake-ui/page/page.vue')['default']
-    SfQuotation: typeof import('@/snowflake-ui/quotation/quotation.vue')['default']
     SfSafeArea: typeof import('@/snowflake-ui/safeArea/safeArea.vue')['default']
-    SfSetItem: typeof import('@/snowflake-ui/setItem/setItem.vue')['default']
-    SfSkeleton: typeof import('@/snowflake-ui/skeleton/skeleton.vue')['default']
-    SfVirtualList: typeof import('@/snowflake-ui/virtualList/virtualList.vue')['default']
   }
 }
