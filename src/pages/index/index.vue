@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import i18n from '@/locale/index'
+
 import { getComponentNum } from './getModule'
 import { components } from '@/demo/config'
 import * as obj from '@/hooks'
@@ -15,11 +17,24 @@ const go = () => {
 
   window.open(url)
 }
+const current = ref(uni.getLocale())
+
+const changeLanguage = () => {
+  const language = current.value === 'zh-Hans' ? 'en' : 'zh-Hans'
+  current.value = language
+  // 下面2句缺一不可！！！
+  uni.setLocale(language)
+  i18n.global.locale = language
+}
 </script>
 
 <template>
   <sf-page>
     <view class="content">
+      <view style="position: absolute; top: 0; right: 0" @tap="changeLanguage"
+        >
+        {{ current === 'zh-Hans' ? '中文' : 'English' }}
+      </view>
       <image class="logo" src="/static/snow.svg" />
       <view class="title">{{ $t('name') }}</view>
       <text>
