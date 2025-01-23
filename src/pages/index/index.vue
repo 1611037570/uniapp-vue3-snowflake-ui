@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import i18n from '@/locale/index'
-
+import more from './components/more.vue'
 import { getComponentNum } from './getModule'
 import { components } from '@/demo/config'
 import * as obj from '@/hooks'
@@ -14,37 +13,24 @@ const goDemo = () => {
 }
 const go = () => {
   const url = 'https://juejin.cn/user/2342386827791687/posts?sort=popular'
-
   window.open(url)
-}
-const current = ref(uni.getLocale())
-
-const changeLanguage = () => {
-  const language = current.value === 'zh-Hans' ? 'en' : 'zh-Hans'
-  current.value = language
-  // 下面2句缺一不可！！！
-  uni.setLocale(language)
-  i18n.global.locale = language
 }
 </script>
 
 <template>
   <sf-page>
     <view class="content">
-      <view style="position: absolute; top: 0; right: 0" @tap="changeLanguage"
-        >
-        {{ current === 'zh-Hans' ? '中文' : 'English' }}
-      </view>
+      <more />
       <image class="logo" src="/static/snow.svg" />
       <view class="title">{{ $t('name') }}</view>
       <text>
         {{ $t('info') }}
       </text>
-      <view
-        ><text> {{ components.length }} </text>个组件
+      <view>
+        <text> {{ components.length }} </text>个组件
       </view>
-      <view
-        ><text> {{ hookNum }} </text>个hook
+      <view>
+        <text> {{ hookNum }} </text>个hook
       </view>
       <view class="title" @tap="goDemo">{{ $t('goDemo') }}</view>
     </view>
@@ -70,6 +56,8 @@ const changeLanguage = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
 }
 
 .logo {
