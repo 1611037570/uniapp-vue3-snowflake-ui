@@ -27,10 +27,10 @@ const go = () => {
         {{ $t('info') }}
       </text>
       <view>
-        <text> {{ components.length }} </text>个组件
+        <text> {{ components.length }} </text>{{ $t('component') }}
       </view>
       <view>
-        <text> {{ hookNum }} </text>个hook
+        <text> {{ hookNum }} </text>{{ $t('hook') }}
       </view>
       <view class="title" @tap="goDemo">{{ $t('goDemo') }}</view>
     </view>

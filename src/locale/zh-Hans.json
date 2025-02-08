@@ -2,6 +2,8 @@
   "name": "雪花UI",
   "info": "一个基于 UniApp + Vue3 setup语法 + TypeScript 开发的组件库",
   "goDemo": "体验demo",
+  "component": "个组件",
+  "hook": "个钩子函数",
   "copyright": "Copyright © 2024 亿杨迁徙",
   "demo.image": "图片懒加载",
   "demo.i18n": "国际化",

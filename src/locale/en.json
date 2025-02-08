@@ -1,6 +1,8 @@
 {
   "name": "snowflake-ui",
   "info": "is come from UniApp + Vue3 setup + TypeScript developed component library",
+  "component": "a component",
+  "hook": "a hook",
   "goDemo": "look demo page",
   "copyright": "Copyright © 2024 YYQX",
   "demo.image": "image lazy load",
