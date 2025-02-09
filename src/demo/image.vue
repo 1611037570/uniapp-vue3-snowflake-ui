@@ -35,7 +35,6 @@ const updateStatus = () => {
           <sf-image @click="cb" border="3px solid red" :src="src" />
         </view>
       </swiper-item>
-
       <swiper-item>
         <sf-image
           @click="cb"
@@ -46,7 +45,6 @@ const updateStatus = () => {
           border="2px solid red"
         />
         <observer :data="{ width, height, radius }"></observer>
-
         <view style="display: flex">
           <view class="btn" @tap="updateWidth(2)">宽度增加</view>
           <view class="btn" @tap="updateWidth(-2)">宽度减少</view>
@@ -66,8 +64,9 @@ const updateStatus = () => {
         <view class="swiper-item uni-bg-blue">
           <sf-image :src="src" radius="50%" border="3px solid red" />
         </view>
-      </swiper-item> </swiper
-  ></sf-page>
+      </swiper-item>
+    </swiper>
+  </sf-page>
 </template>
 <style scoped>
 .swiper-item {

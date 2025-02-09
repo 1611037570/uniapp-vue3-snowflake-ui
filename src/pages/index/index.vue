@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import about from './components/about.vue'
 import more from './components/more.vue'
 import { getComponentNum } from './getModule'
 import { components } from '@/demo/config'
@@ -20,6 +21,7 @@ const go = () => {
 <template>
   <sf-page>
     <view class="content">
+      <about />
       <more />
       <image class="logo" src="/static/snow.svg" />
       <view class="title">{{ $t('name') }}</view>

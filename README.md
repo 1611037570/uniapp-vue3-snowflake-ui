@@ -9,6 +9,7 @@
 | √   | √          | √    | √   |
 
 # 体验 h5 线上版本
+
 http://1611037570.3vhost.vip
 
 # 体验 h5 本地版本
@@ -18,7 +19,11 @@ pnpm i
 pnpm run dev:h5
 ```
 
-# snowflake开发和维护
+# 开发和维护
+
+## 组件预览
+
+统一存放于src/demo
 
 ## 组件开发
 
@@ -35,7 +40,3 @@ snowflake-ui
 ————————lazyLoad.ts # 不会注册
 ————————lazy-load.ts # 不会注册
 ```
-
-## 组件预览
-
-统一存放于src/demo
