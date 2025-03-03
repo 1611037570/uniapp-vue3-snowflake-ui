@@ -102,7 +102,7 @@ const currentImageStyle = computed(() => {
   return {
     width: useWidth.value.size,
     height: useHeight.value.size,
-    borderRadius: useConvertSize(props.radius).size
+    // borderRadius: useConvertSize(props.radius).size
   }
 })
 // 容器样式

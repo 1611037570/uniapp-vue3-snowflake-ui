@@ -3,5 +3,10 @@
         "src/locale"
     ],
     "i18n-ally.sourceLanguage": "zh-Hans",
-    "i18n-ally.keystyle": "nested"
+    "i18n-ally.keystyle": "nested",
+    "marscode.chatLanguage": "cn",
+    "marscode.codeCompletionPro": {
+        "enableCodeCompletionPro": true
+    },
+    "marscode.enableInlineCommand": true
 }

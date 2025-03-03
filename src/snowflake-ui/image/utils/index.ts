@@ -1,61 +1,39 @@
 import { DEFAULT_CONFIG } from '../config/default'
 import { useSystemStore } from '@/stores'
+type Options = {
+  size: string | number
+  type?: 'px' | 'rem' | 'rpx'
+  followSystemSize?: boolean
+}
+export const convertSize = (options: Options): any => {
+  let { size, type = 'px', followSystemSize } = options
 
-export const convertSize = (
-  options: any
-): {
-  size: string
-  value: number
-} => {
-  let { size, type, followSystemSize } = options
-
-  const useSysSize = (size: any) => {
-    const systemStore = useSystemStore()
-
-    size = parseInt(size)
-    if (!followSystemSize) return size
-    return size + (systemStore.sizeLv - 1) * systemStore.sizeRadio
-  }
   size = String(size)
-  // 百分比 未开发无法使用
-  if (size.includes('%')) {
-    return {
-      size: size,
-      value: 0
-    }
+  // 匹配数值和单位
+  const unitMatch = size.match(/(\d+)(r?px|rem)?/)
+  // 数值
+  const numValue = parseFloat(unitMatch ? unitMatch[1] : size)
+  // 单位
+  let unitValue = unitMatch?.[2] || type
+  const systemStore = useSystemStore()
+
+  // 单位转换率
+  const unitRatio: any =
+    {
+      rpx: DEFAULT_CONFIG.RPX_RATIO,
+      rem: DEFAULT_CONFIG.ROOT_FONT_SIZE
+    }[unitValue] || 1
+
+  const baseValue = unitValue === 'rpx' ? numValue / unitRatio : numValue
+
+  const processedSize = followSystemSize
+    ? baseValue +
+      ((systemStore.sizeLv - 1) * systemStore.sizeRadio) / (unitValue === 'rem' ? unitRatio : 1)
+    : baseValue
+
+  let res = {
+    size: processedSize * unitRatio + `${unitValue === 'rem' ? 'px' : unitValue}`,
+    value: processedSize
   }
-  // rpx
-  else if (size.includes('rpx')) {
-    size = parseInt(size.slice(0, -3)) / DEFAULT_CONFIG.RPX_RATIO
-    size = useSysSize(size)
-    return {
-      size: size * DEFAULT_CONFIG.RPX_RATIO + 'rpx',
-      value: size
-    }
-  }
-  // px
-  else if (size.includes('px')) {
-    size = useSysSize(size)
-    return {
-      size: size + 'px',
-      value: size
-    }
-  }
-  // rem
-  else if (size.includes('rem')) {
-    size = parseInt(size.slice(0, -3)) / DEFAULT_CONFIG.ROOT_FONT_SIZE
-    size = useSysSize(size)
-    return {
-      size: size + 'px',
-      value: size
-    }
-  }
-  // 纯数字
-  else {
-    size = useSysSize(size)
-    return {
-      size: type === 'rpx' ? `${DEFAULT_CONFIG.RPX_RATIO * size}rpx` : `${size}px`,
-      value: size
-    }
-  }
+  return res
 }

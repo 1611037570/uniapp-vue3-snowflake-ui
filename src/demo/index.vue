@@ -9,6 +9,7 @@ import { components, functions } from './config'
 
 <template>
   <sf-page>
+    <sf-image class="logo" src="/static/snow.svg" size="1rem" />
     <view v-for="(item, index) in components" :key="index" class="item" @tap="go(item.url)">
       <view> {{ $t(`demo.${item.url}`) }} </view>
       <view>></view>

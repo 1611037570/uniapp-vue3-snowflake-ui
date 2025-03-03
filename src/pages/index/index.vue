@@ -23,7 +23,12 @@ const go = () => {
     <view class="content">
       <about />
       <more />
-      <image class="logo" src="/static/snow.svg" />
+      <!-- <image class="logo" src="/static/snow.svg" /> -->
+      <sf-image class="logo" src="/static/snow.svg" :size="6" />
+      <sf-image class="logo" src="/static/snow.svg" size="6" />
+      <sf-image class="logo" src="/static/snow.svg" size="100" pix-type="px" />
+      <sf-image class="logo" src="/static/snow.svg" size="200" pix-type="rpx" />
+      <sf-image class="logo" src="/static/snow.svg" size="1rem" />
       <view class="title">{{ $t('name') }}</view>
       <text>
         {{ $t('info') }}
