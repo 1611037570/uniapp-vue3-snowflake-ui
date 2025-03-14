@@ -53,16 +53,21 @@ const fromPage: boolean | null = inject('fromPage', null)
 const snowflakeID: string = useId()
 // 图片是否显示
 const show = ref<boolean>(!props.lazy)
-// 过渡状态
-const imgTransition = ref<boolean>(false)
+
 // 图片监听
 const observer = ref<any>()
 // 图片状态
 const status = ref<string>('load')
-// 裁切后的src
-const useSrc = ref<string>('')
 
-/** 计算属性 */
+const imageConfig: Record<string, any> = ref({
+  // 过渡状态
+  transition: false,
+  // 当前src
+  src: '',
+  // 旧的src 用于判断是否需要重新加载
+  oldSrc: ''
+})
+
 const statusConfig: Record<string, any> = {
   error: {
     style: { backgroundImage: `url("${DEFAULT_CONFIG.ERROR_IMG}")` },
@@ -77,7 +82,7 @@ const statusConfig: Record<string, any> = {
     class: ''
   }
 }
-
+/** 计算属性 */
 // 图片状态类名
 const useStatusStyle = computed(() => statusConfig[status.value].style)
 // 图片状态样式
@@ -85,7 +90,7 @@ const useStatusClass = computed(() => statusConfig[status.value].class)
 
 // 过渡类名
 const useTransition = computed(() => {
-  return imgTransition.value && props.transition ? 'snowflake-image-transition' : ''
+  return imageConfig.value.transition ? 'snowflake-image-transition' : ''
 })
 
 // 图片所使用的宽度
@@ -145,7 +150,10 @@ const cropSrc = () => {
   const h = useHeight.value.value * props.ratio
 
   const path = src.value.split('?')[0]
-
+  if (path === imageConfig.value.oldSrc) {
+    return imageConfig.value.oldSrc
+  }
+  imageConfig.value.oldSrc = path
   return type === 'tx'
     ? `${path}?imageMogr2/crop/${w}x${h}/gravity/center`
     : `${path}?x-oss-process=image/resize,w_${w},h_${h}`
@@ -167,8 +175,11 @@ const handleError = () => {
 const handleLoad = () => {
   status.value = 'success'
   emit('load')
+  // 未使用过渡动画无需操作
+  if (!props.transition) return
+  // 开启过渡
   setTimeout(() => {
-    imgTransition.value = true
+    imageConfig.value.transition = true
   }, 50)
 }
 // 懒加载
@@ -198,12 +209,8 @@ const openLazyLoad = () => {
 // n-vue图片懒加载
 const nVueLazyLoad = () => {
   // 非懒加载无需操作
-  if (!props.lazy) {
-    return
-  }
-  if (show.value) {
-    return
-  }
+  if (!props.lazy) return
+  if (show.value) return
   openImage()
 }
 // 卸载监听器
@@ -234,13 +241,13 @@ const openImage = () => {
     return
   }
   if (src.value.startsWith('http')) {
-    useSrc.value = cropSrc()
+    imageConfig.value.src = cropSrc()
   } else if (!DEFAULT_CONFIG.AUTO_PATH) {
-    useSrc.value = src.value
+    imageConfig.value.src = src.value
   } else if (src.value.startsWith('.') || src.value.startsWith('@')) {
-    useSrc.value = DEFAULT_CONFIG.AUTO_PATH_URL + src.value
+    imageConfig.value.src = DEFAULT_CONFIG.AUTO_PATH_URL + src.value
   } else {
-    useSrc.value = systemStore.imgServerUrl + src.value
+    imageConfig.value.src = systemStore.imgServerUrl + src.value
   }
 
   show.value = true
@@ -256,8 +263,6 @@ watch(
   () => {
     // 未显示无需操作
     if (!show.value) return
-    console.log('useSrc', useSrc.value)
-
     // 重置状态
     status.value = 'load'
     // 关闭图片显示
@@ -279,7 +284,6 @@ onMounted(() => {
     // #endif
   } else {
     openImage()
-    closeEmit()
   }
 })
 onBeforeUnmount(() => {
@@ -310,7 +314,7 @@ defineExpose({
       :mode="mode"
       :style="[useImageStyle]"
       :class="[useTransition, imageClass]"
-      :src="useSrc"
+      :src="imageConfig.src"
       @load="handleLoad"
       @error="handleError"
     />
