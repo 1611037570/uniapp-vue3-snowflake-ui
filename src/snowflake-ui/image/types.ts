@@ -3,7 +3,7 @@ export type SnowflakeImage = {
   size?: string | number
   width?: string | number
   height?: string | number
-  pixType?: 'rem' | 'rpx' | 'px' | undefined
+  pixType?: string
   mode?: string
   lazy?: boolean
   ratio?: number

@@ -2,15 +2,15 @@ import { DEFAULT_CONFIG } from '../config/default'
 import { useSystemStore } from '@/stores'
 type Options = {
   size: string | number
-  type?: 'px' | 'rem' | 'rpx'
+  type?: string
   followSystemSize?: boolean
 }
 export const convertSize = (options: Options): any => {
-  let { size, type = 'px', followSystemSize } = options
+  let { size, type = 'px', followSystemSize = false } = options
 
   size = String(size)
   // 匹配数值和单位
-  const unitMatch = size.match(/(\d+)(r?px|rem)?/)
+  const unitMatch = size.match(/(\d+.?\d*)(r?px|rem)?/)
   // 数值
   const numValue = parseFloat(unitMatch ? unitMatch[1] : size)
   // 单位

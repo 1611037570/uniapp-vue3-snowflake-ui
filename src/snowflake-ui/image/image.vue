@@ -63,26 +63,25 @@ const status = ref<string>('load')
 const useSrc = ref<string>('')
 
 /** 计算属性 */
-// 图片状态样式
-const useStatusStyle = computed(() => {
-  if (status.value === 'error') {
-    return {
-      backgroundImage: `url("${DEFAULT_CONFIG.ERROR_IMG}")`
-    }
+const statusConfig: Record<string, any> = {
+  error: {
+    style: { backgroundImage: `url("${DEFAULT_CONFIG.ERROR_IMG}")` },
+    class: 'snowflake-image-error'
+  },
+  load: {
+    style: {},
+    class: 'snowflake-image-loading'
+  },
+  success: {
+    style: {},
+    class: ''
   }
-})
+}
+
 // 图片状态类名
-const useStatusClass = computed(() => {
-  if (status.value === 'success') {
-    return ''
-  }
-  if (status.value === 'error') {
-    return 'snowflake-image-error'
-  }
-  if (status.value === 'load') {
-    return 'snowflake-image-loading'
-  }
-})
+const useStatusStyle = computed(() => statusConfig[status.value].style)
+// 图片状态样式
+const useStatusClass = computed(() => statusConfig[status.value].class)
 
 // 过渡类名
 const useTransition = computed(() => {
@@ -102,7 +101,7 @@ const currentImageStyle = computed(() => {
   return {
     width: useWidth.value.size,
     height: useHeight.value.size,
-    // borderRadius: useConvertSize(props.radius).size
+    borderRadius: useConvertSize(props.radius).size
   }
 })
 // 容器样式
@@ -153,6 +152,10 @@ const cropSrc = () => {
 }
 // 点击事件
 const handleClick = (event: any) => {
+  if (status.value === 'error') {
+    console.log('error')
+    return
+  }
   emit('click', event)
 }
 // 错误事件
@@ -169,17 +172,16 @@ const handleLoad = () => {
   }, 50)
 }
 // 懒加载
-const lazyLoad = () => {
+const openLazyLoad = () => {
   setTimeout(() => {
-    // #ifdef MP-WEIXIN
-    observer.value = proxy.createIntersectionObserver({
+    const options = {
       thresholds: DEFAULT_CONFIG.THRESHOLDS
-    })
+    }
+    // #ifdef MP-WEIXIN
+    observer.value = proxy.createIntersectionObserver(options)
     // #endif
     // #ifndef MP-WEIXIN
-    observer.value = uni.createIntersectionObserver(this, {
-      thresholds: DEFAULT_CONFIG.THRESHOLDS
-    })
+    observer.value = uni.createIntersectionObserver(this, options)
     // #endif
 
     observer.value
@@ -213,13 +215,11 @@ const openEmit = () => {
   if (!fromPage) return
   uni.$on('observer_status', (type) => {
     if (show.value) return
-    // #ifndef APP-NVUE
     if (type === 'open') {
-      lazyLoad()
+      openLazyLoad()
     } else if (type === 'close') {
       closeObserver()
     }
-    // #endif
   })
 }
 // 卸载监听器事件
@@ -273,10 +273,10 @@ watch(
 onMounted(() => {
   if (props.lazy) {
     // #ifndef APP-NVUE
+    // 非nvue平台开启懒加载
     openEmit()
-    lazyLoad()
+    openLazyLoad()
     // #endif
-    return
   } else {
     openImage()
     closeEmit()
@@ -301,7 +301,7 @@ defineExpose({
     :key="snowflakeID"
     :style="[containerStyle, useContainerStyle, useStatusStyle]"
     :class="[containerClass, useStatusClass]"
-    @tap="handleClick"
+    @tap.stop="handleClick"
     @appear="nVueLazyLoad"
   >
     <image
